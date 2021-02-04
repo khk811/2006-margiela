@@ -1,1 +1,30 @@
-{{ content }}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{{ page.title }}</title>
+  </head>
+  <body>
+    <div class="header">
+      <h1>{{ site.title }}</h1>
+      <table>
+        <th>name</th>
+        <th>last modified</th>
+        <th>size</th>
+      </table>
+    </div>
+    <div class="navgation-bar">
+      <ul>
+        <li>item1</li>
+        <li>item2</li>
+      </ul>
+    </div>
+    <div class="post">
+      <h1>post area.</h1>
+      {{ content }}
+    </div>
+    <div class="footer">
+      footer area.
+    </div>
+  </body>
+</html>
