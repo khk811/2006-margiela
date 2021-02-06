@@ -4,27 +4,45 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style media="screen">
-      .header li {
-        display: inline;
+      :root {
+        --icon-width:30px;
+        --name-width:150px;
+        --last-modified-width:170px;
+        --size-width:50px;
+      }
+      .headerGrid {
+        display: grid;
+        grid-template-columns: var(--icon-width) var(--name-width) var(--last-modified-width) var(--size-width) auto;
+      }
+      .sideNavGrid {
+        display: grid;
+        grid-template-columns: var(--icon-width) var(--name-width) var(--last-modified-width) var(--size-width);
       }
       .container {
         display: flex;
         flex-flow: row wrap;
       }
       .sidenav {
-        width: 250px;
+        width: auto;
         float: left;
       }
       .post {
         width: 800px;
       }
+      ul{
+        list-style: none;
+      }
     </style>
+    <script type="text/javascript">
+      //dropdown(sideNav)
+    </script>
     <title>{{ page.title }}</title>
   </head>
   <body>
     <div class="header">
       <h1>{{ site.title }}</h1>
-      <ul>
+      <ul class="headerGrid">
+        <li><img src="./assets/icons/blank.png" alt="blankIcon"></li>
         <li>Name</li>
         <li>Last Modified</li>
         <li>Size</li>
@@ -35,8 +53,24 @@
     <div class="container">
       <div class="sidenav">
         <ul>
-          <li>item1</li>
-          <li>item2</li>
+          <li class="sideNavGrid">
+            <div><img src="./assets/icons/folder.png" alt="folderIcon"></div>
+            <div>item name</div>
+            <div>0000-00-00 00:00</div>
+            <div>00</div>
+          </li>
+          <li class="sideNavGrid">
+            <div><img src="./assets/icons/folder.png" alt="folderIcon"></div>
+            <div>item name</div>
+            <div>0000-00-00 00:00</div>
+            <div>00</div>
+          </li>
+          <li class="sideNavGrid">
+            <div><img src="./assets/icons/folder.png" alt="folderIcon"></div>
+            <div>item name</div>
+            <div>0000-00-00 00:00</div>
+            <div>00</div>
+          </li>
         </ul>
       </div>
       <div class="post">
