@@ -2,9 +2,21 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style media="screen">
       .header li {
         display: inline;
+      }
+      .container {
+        display: flex;
+        flex-flow: row wrap;
+      }
+      .sidenav {
+        width: 250px;
+        float: left;
+      }
+      .post {
+        width: 800px;
       }
     </style>
     <title>{{ page.title }}</title>
@@ -20,15 +32,17 @@
       </ul>
     </div>
     <hr>
-    <div class="navgation-bar">
-      <ul>
-        <li>item1</li>
-        <li>item2</li>
-      </ul>
-    </div>
-    <div class="post">
-      <h1>post area.</h1>
-      {{ content }}
+    <div class="container">
+      <div class="sidenav">
+        <ul>
+          <li>item1</li>
+          <li>item2</li>
+        </ul>
+      </div>
+      <div class="post">
+        <h1>post area.</h1>
+        {{ content }}
+      </div>
     </div>
     <hr>
     <div class="footer">
