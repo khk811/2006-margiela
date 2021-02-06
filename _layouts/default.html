@@ -6,17 +6,25 @@
     <style media="screen">
       :root {
         --icon-width:30px;
-        --name-width:150px;
+        --void-width: var(--icon-width);
+        --name-width:120px;
         --last-modified-width:170px;
         --size-width:50px;
       }
       .headerGrid {
         display: grid;
-        grid-template-columns: var(--icon-width) var(--name-width) var(--last-modified-width) var(--size-width) auto;
+        grid-template-columns: var(--void-width) var(--icon-width) var(--name-width) var(--last-modified-width) var(--size-width) auto;
       }
       .sideNavGrid {
         display: grid;
-        grid-template-columns: var(--icon-width) var(--name-width) var(--last-modified-width) var(--size-width);
+        grid-template-columns: var(--void-width) var(--icon-width) var(--name-width) var(--last-modified-width) var(--size-width);
+      }
+      .categoryName, .headerName {
+        grid-column: 2/4;
+        grid-row:1/2;
+      }
+      .postIcon {
+        grid-column: 2;
       }
       .container {
         display: flex;
@@ -43,7 +51,7 @@
       <h1>{{ site.title }}</h1>
       <ul class="headerGrid">
         <li><img src="./assets/icons/blank.png" alt="blankIcon"></li>
-        <li>Name</li>
+        <li class="headerName">Name</li>
         <li>Last Modified</li>
         <li>Size</li>
         <li>Contents</li>
@@ -55,19 +63,25 @@
         <ul>
           <li class="sideNavGrid">
             <div><img src="./assets/icons/folder.png" alt="folderIcon"></div>
+            <div class="categoryName">item name</div>
+            <div>0000-00-00 00:00</div>
+            <div>00</div>
+          </li>
+          <li class="sideNavGrid">
+            <div class="postIcon"><img src="./assets/icons/unknown.png" alt="unknownIcon"></div>
             <div>item name</div>
             <div>0000-00-00 00:00</div>
             <div>00</div>
           </li>
           <li class="sideNavGrid">
             <div><img src="./assets/icons/folder.png" alt="folderIcon"></div>
-            <div>item name</div>
+            <div class="categoryName">item name</div>
             <div>0000-00-00 00:00</div>
             <div>00</div>
           </li>
           <li class="sideNavGrid">
             <div><img src="./assets/icons/folder.png" alt="folderIcon"></div>
-            <div>item name</div>
+            <div class="categoryName">item name</div>
             <div>0000-00-00 00:00</div>
             <div>00</div>
           </li>
