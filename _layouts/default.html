@@ -2,17 +2,24 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <style media="screen">
+      .header li {
+        display: inline;
+      }
+    </style>
     <title>{{ page.title }}</title>
   </head>
   <body>
     <div class="header">
       <h1>{{ site.title }}</h1>
-      <table>
-        <th>name</th>
-        <th>last modified</th>
-        <th>size</th>
-      </table>
+      <ul>
+        <li>Name</li>
+        <li>Last Modified</li>
+        <li>Size</li>
+        <li>Contents</li>
+      </ul>
     </div>
+    <hr>
     <div class="navgation-bar">
       <ul>
         <li>item1</li>
@@ -23,6 +30,7 @@
       <h1>post area.</h1>
       {{ content }}
     </div>
+    <hr>
     <div class="footer">
       footer area.
     </div>
