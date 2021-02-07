@@ -5,34 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style media="screen">
       :root {
-        --icon-width:30px;
-        --name-width:150px;
-        --last-modified-width:170px;
-        --size-width:50px;
+        --icon-width:25px;
+        --name-width:285px;
+        --last-modified-width:150px;
+        --size-width:40px;
       }
-      /*
-      .headerGrid {
-        display: grid;
-        grid-template-columns: var(--void-width) var(--icon-width) var(--name-width) var(--last-modified-width) var(--size-width) auto;
-      }
-      .SideNavGrid {
-        display: grid;
-        grid-template-columns: var(--void-width) var(--icon-width) var(--name-width) var(--last-modified-width) var(--size-width);
-      }
-      .categoryName, .headerName {
-        grid-column: 2/4;
-        grid-row:1/2;
-      }
-      .postIcon {
-        grid-column: 2;
-      }*/
       .SideNavlist {
         display: list-item;
       }
-      .sideNavrow {
+      .Category {
         display: table-row;
       }
-      .sideNavrow li {
+      .Category li {
+        display: inline-block;
+      }
+      .Category #subItem {
+        display: none;
+      }
+      .NavPost {
+        display: table-row;
+      }
+      .NavPost li {
         display: table-cell;
       }
       #icon {
@@ -63,80 +56,74 @@
       }
     </style>
     <script type="text/javascript">
-      //dropdown(sideNav)
+    var categorySubItem = document.styleSheets[0].cssRules[4];
+
+    function dropdown() {
+      if (categorySubItem.style.display === 'none') {
+        categorySubItem.style.display = 'list-item';
+      } else if (categorySubItem.style.display === 'list-item') {
+        categorySubItem.style.display = 'none';
+      }
+    }
     </script>
     <title>{{ page.title }}</title>
   </head>
   <body>
     <div class="header">
       <h1>{{ site.title }}</h1>
-      <ul class="sideNavrow">
-        <li id="icon"><img src="./assets/icons/blank.png" alt="blankIcon"></li>
-        <li id="name">Name</li>
-        <li id="last-modified">Last Modified</li>
-        <li id="size">Size</li>
-        <li>Contents</li>
-      </ul>
+      <div class="SideNavlist">
+        <ul class="Category">
+          <li id="icon"><img src="./assets/icons/blank.png" alt="blankIcon"></li>
+          <li id="name">Name</li>
+          <li id="last-modified">Last Modified</li>
+          <li id="size">Size</li>
+          <li>Contents</li>
+        </ul>
+      </div>
     </div>
     <hr>
     <div class="container">
       <div class="sidenav">
         <div class="SideNavlist">
-          <ul class="sideNavrow">
+          <ul class="Category">
+            <li id="icon" onclick="dropdown()"><img src="./assets/icons/folder.png" alt="folderIcon"></li>
+            <li id="name" onclick="dropdown()">item name</li>
+            <li id="last-modified">0000-00-00 00:00</li>
+            <li id="size">00</li>
+            <li id="subItem">
+              <ul class="NavPost">
+                <li id="icon"><img src="./assets/icons/unknown.png" alt="unknownIcon"></li>
+                <li id="name">item name</li>
+                <li id="last-modified">0000-00-00 00:00</li>
+                <li id="size">00</li>
+              </ul>
+              <ul class="NavPost">
+                <li id="icon"><img src="./assets/icons/unknown.png" alt="unknownIcon"></li>
+                <li id="name">item name</li>
+                <li id="last-modified">0000-00-00 00:00</li>
+                <li id="size">00</li>
+              </ul>
+              <ul class="NavPost">
+                <li id="icon"><img src="./assets/icons/unknown.png" alt="unknownIcon"></li>
+                <li id="name">item name</li>
+                <li id="last-modified">0000-00-00 00:00</li>
+                <li id="size">00</li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="Category">
             <li id="icon"><img src="./assets/icons/folder.png" alt="folderIcon"></li>
             <li id="name">item name</li>
             <li id="last-modified">0000-00-00 00:00</li>
             <li id="size">00</li>
           </ul>
-          <ul class="sideNavrow">
-            <li id="icon"><img src="./assets/icons/folder.png" alt="folderIcon"></li>
-            <li id="name">item name</li>
-            <li id="last-modified">0000-00-00 00:00</li>
-            <li id="size">00</li>
-          </ul>
-          <ul class="sideNavrow">
+          <ul class="Category">
             <li id="icon"><img src="./assets/icons/folder.png" alt="folderIcon"></li>
             <li id="name">item name</li>
             <li id="last-modified">0000-00-00 00:00</li>
             <li id="size">00</li>
           </ul>
         </div>
-        <!---
-        <ul>
-          <ul>
-            <li><img src="./assets/icons/folder.png" alt="folderIcon"></li>
-            <li>item name</li>
-            <li>0000-00-00 00:00</li>
-            <li>00</li>
-          </ul>
-        </ul>--->
-        <!---
-        <ul>
-          <li class="SideNavGrid">
-            <div><img src="./assets/icons/folder.png" alt="folderIcon"></div>
-            <div class="categoryName">item name</div>
-            <div>0000-00-00 00:00</div>
-            <div>00</div>
-          </li>
-          <li class="SideNavGrid">
-            <div class="postIcon"><img src="./assets/icons/unknown.png" alt="unknownIcon"></div>
-            <div>item name</div>
-            <div>0000-00-00 00:00</div>
-            <div>00</div>
-          </li>
-          <li class="SideNavGrid">
-            <div><img src="./assets/icons/folder.png" alt="folderIcon"></div>
-            <div class="categoryName">item name</div>
-            <div>0000-00-00 00:00</div>
-            <div>00</div>
-          </li>
-          <li class="SideNavGrid">
-            <div><img src="./assets/icons/folder.png" alt="folderIcon"></div>
-            <div class="categoryName">item name</div>
-            <div>0000-00-00 00:00</div>
-            <div>00</div>
-          </li>
-        </ul>--->
       </div>
       <div class="post">
         <h1>post area.</h1>
