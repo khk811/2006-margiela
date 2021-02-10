@@ -9,6 +9,7 @@
         --name-width:285px;
         --last-modified-width:150px;
         --size-width:40px;
+        --post-name-width: calc(var(--name-width) - var(--icon-width));
       }
       .SideNavlist {
         display: list-item;
@@ -22,6 +23,14 @@
       .Category #subItem {
         display: none;
       }
+      .indentation {
+        width: var(--icon-width);
+        grid-column: 1;
+      }
+      .subTree {
+        width: auto;
+        grid-column: 2;
+      }
       .NavPost {
         display: table-row;
       }
@@ -33,6 +42,9 @@
       }
       #name {
         width: var(--name-width);
+      }
+      #postName {
+        width: var(--post-name-width);
       }
       #last-modified {
         width: var(--last-modified-width);
@@ -60,8 +72,8 @@
 
     function dropdown() {
       if (categorySubItem.style.display === 'none') {
-        categorySubItem.style.display = 'list-item';
-      } else if (categorySubItem.style.display === 'list-item') {
+        categorySubItem.style.display = 'grid';
+      } else if (categorySubItem.style.display === 'grid') {
         categorySubItem.style.display = 'none';
       }
     }
@@ -83,33 +95,34 @@
     </div>
     <hr>
     <div class="container">
-      <div class="sidenav">
-        <div class="SideNavlist">
-          <ul class="Category">
-            <li id="icon" onclick="dropdown()"><img src="./assets/icons/folder.png" alt="folderIcon"></li>
-            <li id="name" onclick="dropdown()">item name</li>
-            <li id="last-modified">0000-00-00 00:00</li>
-            <li id="size">00</li>
-            <li id="subItem">
+      <div class="SideNavlist">
+        <ul class="Category">
+          <li id="icon" onclick="dropdown()"><img src="./assets/icons/folder.png" alt="folderIcon"></li>
+          <li id="name" onclick="dropdown()">item name</li>
+          <li id="last-modified">0000-00-00 00:00</li>
+          <li id="size">00</li>
+          <div id="subItem">
+            <div class="indentation"></div>
+            <div class="subTree">
               <ul class="NavPost">
                 <li id="icon"><img src="./assets/icons/unknown.png" alt="unknownIcon"></li>
-                <li id="name">item name</li>
+                <li id="postName">item name</li>
+                <li id="last-modified">0000-00-00 00:00</li>
+                <li id="size">00</li>
+                </ul>
+              <ul class="NavPost">
+                <li id="icon"><img src="./assets/icons/unknown.png" alt="unknownIcon"></li>
+                <li id="postName">item name</li>
                 <li id="last-modified">0000-00-00 00:00</li>
                 <li id="size">00</li>
               </ul>
               <ul class="NavPost">
                 <li id="icon"><img src="./assets/icons/unknown.png" alt="unknownIcon"></li>
-                <li id="name">item name</li>
+                <li id="postName">item name</li>
                 <li id="last-modified">0000-00-00 00:00</li>
                 <li id="size">00</li>
               </ul>
-              <ul class="NavPost">
-                <li id="icon"><img src="./assets/icons/unknown.png" alt="unknownIcon"></li>
-                <li id="name">item name</li>
-                <li id="last-modified">0000-00-00 00:00</li>
-                <li id="size">00</li>
-              </ul>
-            </li>
+            </div>
           </ul>
           <ul class="Category">
             <li id="icon"><img src="./assets/icons/folder.png" alt="folderIcon"></li>
@@ -123,8 +136,7 @@
             <li id="last-modified">0000-00-00 00:00</li>
             <li id="size">00</li>
           </ul>
-        </div>
-      </div>
+        </div>   
       <div class="post">
         <h1>post area.</h1>
         {{ content }}
