@@ -19,6 +19,7 @@
       }
       .item-row li {
         display: inline-block;
+        vertical-align: middle;
       }
       .subitem {
         display: none;
@@ -46,9 +47,16 @@
       .size {
         width: var(--size-width);
       }
+      #headernav {
+       /* width:*/
+      }
       .container {
         display: flex;
         flex-flow: row wrap;
+      }
+      #sidenav {
+        width: calc(var(--icon-width)+var(--name-width)+var(--last-modified-width)+var(--size-width));
+        float: left;
       }
       .post {
         width: 800px;
@@ -73,7 +81,7 @@
   <body>
     <div class="header">
       <h1>{{ site.title }}</h1>
-      <div class="navigation">
+      <div class="navigation" id="headernav">
         <ul class="item-row">
           <li class="icon"><img src="./assets/icons/blank.png" alt="blankIcon"></li>
           <li class="name">Name</li>
@@ -85,10 +93,10 @@
     </div>
     <hr>
     <div class="container">
-      <div class="navigation">
+      <div class="navigation" id="sidenav">
         <ul class="item-row">
           <li class="icon" onclick="dropdown()"><img src="./assets/icons/folder.png" alt="folderIcon"></li>
-          <li class="name" onclick="dropdown()">item name</li>
+          <li class="name" onclick="dropdown()">Vestibulum ornare nulla sapien, et aliquet ligula commodo vel. Morbi posuere consequat metus, in vehicula diam.</li>
           <li class="last-modified">0000-00-00 00:00</li>
           <li class="size">00</li>
           <div class="subitem">
@@ -96,13 +104,13 @@
             <div class="subnavigation">
               <ul class="item-row">
                 <li class="icon"><img src="./assets/icons/unknown.png" alt="unknownIcon"></li>
-                <li class="post-name">item name</li>
+                <li class="post-name">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras porttitor efficitur nibh quis porta. Vestibulum ornare nulla sapien, et aliquet ligula commodo vel. Morbi posuere consequat metus, in vehicula diam.</li>
                 <li class="last-modified">0000-00-00 00:00</li>
                 <li class="size">00</li>
                 </ul>
               <ul class="item-row">
                 <li class="icon"><img src="./assets/icons/unknown.png" alt="unknownIcon"></li>
-                <li class="post-name">item name</li>
+                <li class="post-name">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
                 <li class="last-modified">0000-00-00 00:00</li>
                 <li class="size">00</li>
               </ul>
@@ -130,6 +138,9 @@
       <div class="post">
         <h1>post area.</h1>
         {{ content }}
+        <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras porttitor efficitur nibh quis porta. Vestibulum ornare nulla sapien, et aliquet ligula commodo vel. Morbi posuere consequat metus, in vehicula diam. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam pharetra ante non fringilla elementum. Praesent pretium, nunc in condimentum varius, arcu ipsum feugiat ipsum, eget finibus metus ipsum malesuada ante. Maecenas sollicitudin sed sapien quis luctus.
+        </p>
       </div>
     </div>
     <hr>
