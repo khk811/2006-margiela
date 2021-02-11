@@ -11,54 +11,44 @@
         --size-width:40px;
         --post-name-width: calc(var(--name-width) - var(--icon-width));
       }
-      .SideNavlist {
-        display: list-item;
+      .navigation {
+        display: block;
       }
-      .Category {
+      .item-row {
         display: table-row;
       }
-      .Category li {
+      .item-row li {
         display: inline-block;
       }
-      .Category #subItem {
+      .subitem {
         display: none;
       }
       .indentation {
         width: var(--icon-width);
         grid-column: 1;
       }
-      .subTree {
+      .subnavigation {
         width: auto;
         grid-column: 2;
       }
-      .NavPost {
-        display: table-row;
-      }
-      .NavPost li {
-        display: table-cell;
-      }
-      #icon {
+      .icon {
         width: var(--icon-width);
       }
-      #name {
+      .name {
         width: var(--name-width);
       }
-      #postName {
+      .post-name {
         width: var(--post-name-width);
       }
-      #last-modified {
+      .last-modified {
         width: var(--last-modified-width);
       }
-      #size {
+      .size {
         width: var(--size-width);
       }
       .container {
         display: flex;
         flex-flow: row wrap;
-      }
-      .sidenav {
-        width: auto;
-        float: left;
       }
       .post {
         width: 800px;
@@ -68,13 +58,13 @@
       }
     </style>
     <script type="text/javascript">
-    var categorySubItem = document.styleSheets[0].cssRules[4];
+    var subitem = document.styleSheets[0].cssRules[4];
 
     function dropdown() {
-      if (categorySubItem.style.display === 'none') {
-        categorySubItem.style.display = 'grid';
-      } else if (categorySubItem.style.display === 'grid') {
-        categorySubItem.style.display = 'none';
+      if (subitem.style.display === 'none') {
+        subitem.style.display = 'grid';
+      } else if (subitem.style.display === 'grid') {
+        subitem.style.display = 'none';
       }
     }
     </script>
@@ -83,58 +73,58 @@
   <body>
     <div class="header">
       <h1>{{ site.title }}</h1>
-      <div class="SideNavlist">
-        <ul class="Category">
-          <li id="icon"><img src="./assets/icons/blank.png" alt="blankIcon"></li>
-          <li id="name">Name</li>
-          <li id="last-modified">Last Modified</li>
-          <li id="size">Size</li>
+      <div class="navigation">
+        <ul class="item-row">
+          <li class="icon"><img src="./assets/icons/blank.png" alt="blankIcon"></li>
+          <li class="name">Name</li>
+          <li class="last-modified">Last Modified</li>
+          <li class="size">Size</li>
           <li>Contents</li>
         </ul>
       </div>
     </div>
     <hr>
     <div class="container">
-      <div class="SideNavlist">
-        <ul class="Category">
-          <li id="icon" onclick="dropdown()"><img src="./assets/icons/folder.png" alt="folderIcon"></li>
-          <li id="name" onclick="dropdown()">item name</li>
-          <li id="last-modified">0000-00-00 00:00</li>
-          <li id="size">00</li>
-          <div id="subItem">
+      <div class="navigation">
+        <ul class="item-row">
+          <li class="icon" onclick="dropdown()"><img src="./assets/icons/folder.png" alt="folderIcon"></li>
+          <li class="name" onclick="dropdown()">item name</li>
+          <li class="last-modified">0000-00-00 00:00</li>
+          <li class="size">00</li>
+          <div class="subitem">
             <div class="indentation"></div>
-            <div class="subTree">
-              <ul class="NavPost">
-                <li id="icon"><img src="./assets/icons/unknown.png" alt="unknownIcon"></li>
-                <li id="postName">item name</li>
-                <li id="last-modified">0000-00-00 00:00</li>
-                <li id="size">00</li>
+            <div class="subnavigation">
+              <ul class="item-row">
+                <li class="icon"><img src="./assets/icons/unknown.png" alt="unknownIcon"></li>
+                <li class="post-name">item name</li>
+                <li class="last-modified">0000-00-00 00:00</li>
+                <li class="size">00</li>
                 </ul>
-              <ul class="NavPost">
-                <li id="icon"><img src="./assets/icons/unknown.png" alt="unknownIcon"></li>
-                <li id="postName">item name</li>
-                <li id="last-modified">0000-00-00 00:00</li>
-                <li id="size">00</li>
+              <ul class="item-row">
+                <li class="icon"><img src="./assets/icons/unknown.png" alt="unknownIcon"></li>
+                <li class="post-name">item name</li>
+                <li class="last-modified">0000-00-00 00:00</li>
+                <li class="size">00</li>
               </ul>
-              <ul class="NavPost">
-                <li id="icon"><img src="./assets/icons/unknown.png" alt="unknownIcon"></li>
-                <li id="postName">item name</li>
-                <li id="last-modified">0000-00-00 00:00</li>
-                <li id="size">00</li>
+              <ul class="item-row">
+                <li class="icon"><img src="./assets/icons/unknown.png" alt="unknownIcon"></li>
+                <li class="post-name">item name</li>
+                <li class="last-modified">0000-00-00 00:00</li>
+                <li class="size">00</li>
               </ul>
             </div>
           </ul>
-          <ul class="Category">
-            <li id="icon"><img src="./assets/icons/folder.png" alt="folderIcon"></li>
-            <li id="name">item name</li>
-            <li id="last-modified">0000-00-00 00:00</li>
-            <li id="size">00</li>
+          <ul class="item-row">
+            <li class="icon"><img src="./assets/icons/folder.png" alt="folderIcon"></li>
+            <li class="name">item name</li>
+            <li class="last-modified">0000-00-00 00:00</li>
+            <li class="size">00</li>
           </ul>
-          <ul class="Category">
-            <li id="icon"><img src="./assets/icons/folder.png" alt="folderIcon"></li>
-            <li id="name">item name</li>
-            <li id="last-modified">0000-00-00 00:00</li>
-            <li id="size">00</li>
+          <ul class="item-row">
+            <li class="icon"><img src="./assets/icons/folder.png" alt="folderIcon"></li>
+            <li class="name">item name</li>
+            <li class="last-modified">0000-00-00 00:00</li>
+            <li class="size">00</li>
           </ul>
         </div>   
       <div class="post">
